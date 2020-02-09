@@ -1,17 +1,27 @@
 <template>
   <div class="home">
-    <HelloWorld/>
+    <CarouselAlertApi/>
+    <Programes/>
+    <Billeterie/>
+    <NouvellesGenerales/>
+    <Map/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import CarouselAlertApi from '@/components/CarouselAlertApi.vue'
+import Programes from '@/components/Programes.vue'
+import Billeterie from '@/components/Billeterie.vue'
+import NouvellesGenerales from '@/components/NouvellesGenerales.vue'
+import Map from '@/components/Map.vue'
 export default {
   name: 'home',
   components: {
-    HelloWorld
-  }
+  CarouselAlertApi,
+  Billeterie,
+  NouvellesGenerales,
+  Map,
+  Programes
+  },
 }
 </script>

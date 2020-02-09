@@ -34,13 +34,15 @@
     </v-carousel>
 
   </v-card>
+
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'CarouselAlert',
    data () {
       return {
+        info : null,
         colors: [
           'green',
           'secondary',
@@ -58,5 +60,10 @@ export default {
         ],
       }
     },
+    mounted () {
+    this.$axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => (this.test = response))
+  }
 };
 </script>
