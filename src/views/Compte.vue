@@ -54,10 +54,19 @@
           methods: {
             validate () {
         if (this.$refs.form.validate()) {
-          this.$axios.post('http://localhost:8000/authentication_token', {
+          
+          this.$axios({
+  method: 'post',
+  url: 'http://localhost:8000/authentication_token',
+  data: {
     email: this.email,
     password: this.password
-      })
+  },
+  headers: {
+            'Content-Type': 'application/json',
+            //'Authorization': 'Bearer '+ 'c2c0401db767fbf3fbfb6e8ebcbe7b4b',
+        }
+});      
         }
       },
         }
