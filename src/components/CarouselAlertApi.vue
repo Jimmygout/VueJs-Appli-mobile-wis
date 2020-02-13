@@ -52,7 +52,7 @@ export default {
   },
   mounted () {
     this.$axios
-      .get('http://127.0.0.1:8001/api/actualites.json')
+      .get('http://127.0.0.1:8000/api/actualites.json')
       .then(response => {
         this.info = response.data
       })

@@ -22,6 +22,132 @@
           </v-list-item>
         </router-link>
 
+<!-- Informations -->
+        <router-link to="/bitcoin">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Informations
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+
+<!-- Programmes -->
+        <router-link to="/bitcoin">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Programmes
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>        
+
+<!-- Billeterie -->
+        <router-link to="/bitcoin">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Billeterie
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+
+<!-- Informations pratiques et FAQ -->
+        <router-link to="/bitcoin">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Informations pratiques et FAQ
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+
+<!-- Carte interactive -->
+        <router-link to="/bitcoin">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Carte interactive 
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+
+<!-- Photos -->
+        <router-link to="/bitcoin">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Photos 
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link> 
+
+<!-- Réseaux sociaux   -->
+        <router-link to="/bitcoin">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Réseaux sociaux   
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link> 
+
+<!-- Compte  -->
+        <router-link to="/compte">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Compte   
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link> 
+        
+<!-- Partenaires  -->
+        <router-link to="/bitcoin">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Partenaires   
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link> 
+
 <!-- BITCOIN -->
         <router-link to="/bitcoin">
           <v-list-item link>
@@ -49,6 +175,20 @@
             </v-list-item-content>
           </v-list-item>
         </router-link>
+
+<!-- contactez nous  -->
+        <router-link to="/contact">
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                Contactez nous   
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link> 
 
 
       </v-list>

@@ -1,5 +1,4 @@
 <template>
-    <v-container>
       <v-row dense>
         <v-col
           v-for="(item, i) in info"
@@ -31,7 +30,6 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
 </template>
 
 <style lang="scss">
@@ -52,7 +50,7 @@ export default {
       info: null,
       loading: true,
       errored: false,
-      url_img: "http://localhost:8001/uploads/"
+      url_img: "http://localhost:8000/uploads/"
     }
   },
   filters: {
@@ -62,7 +60,7 @@ export default {
   },
   mounted () {
     this.$axios
-      .get('http://localhost:8001/api/concerts.json')
+      .get('http://localhost:8000/api/concerts.json')
       .then(response => {
         this.info = response.data
       })
