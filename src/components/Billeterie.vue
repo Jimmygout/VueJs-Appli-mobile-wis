@@ -42,7 +42,7 @@ export default {
       info: null,
       loading: true,
       errored: false,
-      url_billeterie: "https://stackoverflow.com/questions/37645243/static-image-src-in-vue-js-template",
+      url_billeterie: "https://billetto.fr/e/nation-sounds-festival-2020-billets-395081",
       img_billeterie: "https://images.pexels.com/photos/96380/pexels-photo-96380.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       titre_billeterie: "Billeterie"   
     }

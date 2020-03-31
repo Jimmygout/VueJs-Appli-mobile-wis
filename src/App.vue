@@ -23,7 +23,7 @@
         </router-link>
 
 <!-- Informations -->
-        <router-link to="/bitcoin">
+        <router-link to="/informations">
           <v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-contact-mail</v-icon>
@@ -37,7 +37,7 @@
         </router-link>
 
 <!-- Programmes -->
-        <router-link to="/bitcoin">
+        <router-link to="/programmes">
           <v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-contact-mail</v-icon>
@@ -51,7 +51,7 @@
         </router-link>        
 
 <!-- Billeterie -->
-        <router-link to="/bitcoin">
+        <a v-bind:href="billeterie_link"> 
           <v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-contact-mail</v-icon>
@@ -62,10 +62,10 @@
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </router-link>
+        </a>
 
 <!-- Informations pratiques et FAQ -->
-        <router-link to="/bitcoin">
+        <router-link to="/informations_pratiques">
           <v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-contact-mail</v-icon>
@@ -79,7 +79,7 @@
         </router-link>
 
 <!-- Carte interactive -->
-        <router-link to="/bitcoin">
+        <router-link to="/carte_interactive">
           <v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-contact-mail</v-icon>
@@ -93,7 +93,7 @@
         </router-link>
 
 <!-- Photos -->
-        <router-link to="/bitcoin">
+        <router-link to="/photos">
           <v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-contact-mail</v-icon>
@@ -107,7 +107,7 @@
         </router-link> 
 
 <!-- Réseaux sociaux   -->
-        <router-link to="/bitcoin">
+        <router-link to="/reseaux_sociaux">
           <v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-contact-mail</v-icon>
@@ -135,7 +135,7 @@
         </router-link> 
         
 <!-- Partenaires  -->
-        <router-link to="/bitcoin">
+        <router-link to="/partenaires">
           <v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-contact-mail</v-icon>
@@ -147,20 +147,6 @@
             </v-list-item-content>
           </v-list-item>
         </router-link> 
-
-<!-- BITCOIN -->
-        <router-link to="/bitcoin">
-          <v-list-item link>
-            <v-list-item-action>
-              <v-icon>mdi-contact-mail</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>
-                Bitcoin
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
 
 <!-- TEST -->
         <router-link to="/about">
@@ -201,7 +187,7 @@
       dark
     >
       <v-app-bar-nav-icon class="btnNavbar" @click.stop="drawer = !drawer" />
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>Nation Sounds</v-toolbar-title>
     </v-app-bar>
 
     <v-content>
@@ -218,7 +204,7 @@
       color="indigo"
       app
     >
-      <span class="white--text">&copy;Jimmy Gout 2020</span>
+      <span class="white--text">&copy; Nation Sounds 2020</span>
     </v-footer>
   </v-app>
 </template>
@@ -266,6 +252,8 @@
     },
     data: () => ({
       drawer: null,
+      billeterie_link: "https://billetto.fr/e/nation-sounds-festival-2020-billets-395081"
+
     }),
   }
 </script>
