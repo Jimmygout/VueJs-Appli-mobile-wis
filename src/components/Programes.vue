@@ -45,12 +45,15 @@
 <script>
 export default {
   name: 'Programes',
+  props:{
+    localSf:String
+  },
     data () {
     return {
       info: null,
       loading: true,
       errored: false,
-      url_img: "http://localhost:8000/uploads/"
+      url_img: this.localSf+"/uploads/"
     }
   },
   filters: {
@@ -60,7 +63,7 @@ export default {
   },
   mounted () {
     this.$axios
-      .get('http://localhost:8000/api/concerts.json')
+      .get(this.localSf+'/api/concerts.json')
       .then(response => {
         this.info = response.data
       })

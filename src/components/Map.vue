@@ -21,12 +21,15 @@
 <script>
 export default {
   name: 'Map',
+  props:{
+    localVue:String
+  },
     data () {
     return {
       info: null,
       loading: true,
       errored: false,
-      url_img: "http://localhost:8001/uploads/"
+      url_img: this.localVue+"/uploads/"
     }
   },
 };

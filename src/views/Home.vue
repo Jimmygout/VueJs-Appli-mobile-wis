@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <CarouselAlertApi/>
-    <Programes/>
+    <CarouselAlertApi :localSf="localSf"/>
+    <Programes :localSf="localSf"/>
     <Billeterie/>
-    <NouvellesGenerales/>
-    <Map/>
+    <NouvellesGenerales :localSf="localSf"/>
+    <Map :localVue="localVue"/>
   </div>
 </template>
 
@@ -23,5 +23,11 @@ export default {
   Map,
   Programes
   },
+  data: function() {
+    return {
+      localSf:"http://localhost:8000",
+      localVue:"http://localhost:8001"
+    };
+  }
 }
 </script>

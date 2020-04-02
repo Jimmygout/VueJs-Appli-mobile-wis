@@ -38,6 +38,9 @@
 <script>
 export default {
   name: 'CarouselAlertApi',
+  props:{
+    localSf:String
+  },
     data () {
     return {
       info: null,
@@ -51,8 +54,9 @@ export default {
     }
   },
   mounted () {
+    
     this.$axios
-      .get('http://127.0.0.1:8000/api/actualites.json')
+      .get(this.localSf+'/api/actualites.json')
       .then(response => {
         this.info = response.data
       })

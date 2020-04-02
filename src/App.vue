@@ -252,8 +252,7 @@
     },
     data: () => ({
       drawer: null,
-      billeterie_link: "https://billetto.fr/e/nation-sounds-festival-2020-billets-395081"
-
+      billeterie_link: "https://billetto.fr/e/nation-sounds-festival-2020-billets-395081"      
     }),
   }
 </script>
