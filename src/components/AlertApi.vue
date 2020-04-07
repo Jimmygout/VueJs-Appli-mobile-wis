@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h1> Les Nouvelles Générales</h1>
+        <h1> Les Nouvelles Importantes</h1>
     <div v-for="(alert, i) in info" :key="i">
         <v-col cols="12">
-       <v-card v-if="alert.publier" color="#1a8b1f" dark>
+       <v-card v-if="alert.publier" color="red" dark>
               <v-card-title class="headline">{{ alert.titre }}</v-card-title>
               <v-card-subtitle>{{ alert.designation }}</v-card-subtitle>
             </v-card>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'NouvellesGenerales',
+  name: 'AlertApi',
   props:{
     localSf:String
   },

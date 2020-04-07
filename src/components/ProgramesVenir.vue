@@ -2,8 +2,8 @@
       <v-row dense>
 
         <v-col v-for="(item, i) in info" :key="i" cols="12">
-          <h2> {{ formatDate(item.dateConcert) }} </h2>
-          <v-card color="rgb(56, 95, 115)" dark>
+          
+          <v-card v-if="i <3" color="rgb(56, 95, 115)" dark>
 
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
@@ -32,8 +32,6 @@
 </style>
 
 <script>
-import moment from 'moment'
-   
 export default {
   name: 'Programes',
   props:{
@@ -52,17 +50,6 @@ export default {
       return value.toFixed(2)
     }
   },
-  methods: {
-
-  // methods area
-  formatDate: function(value){
-    return moment(String(value)).lang('fr').format('dddd Do MMMM YYYY [à] hh:mm')
-
-    // you dont have to use fromNow() it's just an example
-
-  }
-
-},
   mounted () {
     this.$axios
       .get(this.localSf+'/api/concerts.json')

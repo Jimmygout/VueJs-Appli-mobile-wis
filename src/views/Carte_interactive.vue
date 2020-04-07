@@ -1,5 +1,23 @@
 <template>
-  <div class="about">
-    <h1>This is an Carte interactive page</h1>
+  <div class="map">
+    <br>
+    <Map :localVue="localVue"/>
   </div>
 </template>
+
+<script>
+
+import Map from '@/components/Map.vue'
+export default {
+  name: 'home',
+  components: {
+  Map
+  },
+  data: function() {
+    return {
+      localSf:"http://localhost:8000",
+      localVue:"http://localhost:8001"
+    };
+  }
+}
+</script>

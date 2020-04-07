@@ -1,14 +1,14 @@
 <template>
    <GmapMap
-  :center="{lat:1.38, lng:103.8}" 
+  :center="{lat:48.8306379,lng:2.4354634}" 
   :zoom="12"
   map-type-id="terrain"
   style="width: 100%; height: 300px"
 >
-  <gmap-marker :position="{lat:1.38, lng:103.8}">
+  <gmap-marker :position="{lat:48.8306379,lng:2.4354634}">
       </gmap-marker>
-       <gmap-info-window :position="{lat:1.38, lng:103.8}">
-        Hello world!
+       <gmap-info-window :position="{lat:48.8306379,lng:2.4354634}">
+        Nation Sounds
       </gmap-info-window>
 </GmapMap>
 </template>

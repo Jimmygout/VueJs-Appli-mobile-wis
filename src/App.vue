@@ -5,6 +5,7 @@
     <v-navigation-drawer
       v-model="drawer"
       app
+      id="menu"
     >
       <v-list dense>
 
@@ -58,7 +59,7 @@
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>
-                Billeterie
+                Billeterie (autre site)
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -190,7 +191,7 @@
       <v-toolbar-title>Nation Sounds</v-toolbar-title>
     </v-app-bar>
 
-    <v-content>
+    <v-content id="content">
           <v-col class="text-center no-padding">
 
 <!-- Affichage des page -->
@@ -243,6 +244,12 @@
     }
   }
 }
+#menu {
+  background-color: floralwhite;
+}
+#content {
+  background-color: cornsilk;
+}
 </style>
 
 <script>
@@ -252,7 +259,7 @@
     },
     data: () => ({
       drawer: null,
-      billeterie_link: "https://billetto.fr/e/nation-sounds-festival-2020-billets-395081"      
+      billeterie_link: "https://billetto.fr/e/nation-sounds-festival-2020-billets-395081/select"      
     }),
   }
 </script>

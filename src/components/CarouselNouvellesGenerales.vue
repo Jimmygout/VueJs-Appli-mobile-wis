@@ -1,32 +1,23 @@
 <template>
-   <v-carousel cycle :continuous="false" :show-arrows="false" hide-delimiter-background delimiter-icon="mdi-minus" height="120" style="padding:0px;" >
+   <v-carousel cycle :continuous="false" :show-arrows="false" hide-delimiter-background delimiter-icon="mdi-minus" height="120" style="padding:0px;">
 
     <div v-for="(alert, i) in info" :key="i">
-
       <v-carousel-item v-if="alert.publier">
-
-        <v-sheet color="red" height="100%" tile>
-
-          <v-row class="fill-height" align="center" justify="center" >
-            
+        <v-sheet color="#1a8b1f" height="100%" tile>
+          <v-row class="fill-height" align="center" justify="center">
             <div class="display-1"> 
               {{ alert.titre }} 
-            </div>
-
+              </div>
           </v-row>
-
         </v-sheet>
-
       </v-carousel-item>
-
       </div>
-
     </v-carousel>
 </template>
 
 <script>
 export default {
-  name: 'CarouselAlertApi',
+  name: 'CarouselNouvellesGenerales',
   props:{
     localSf:String
   },
@@ -43,7 +34,6 @@ export default {
     }
   },
   mounted () {
-    
     this.$axios
       .get(this.localSf+'/api/actualites.json')
       .then(response => {

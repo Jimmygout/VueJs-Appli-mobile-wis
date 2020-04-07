@@ -8,7 +8,7 @@
             >
            <v-col class="text-center btn-billeterie" cols="12" sm="4">
       <div class="my-2">
-        <v-btn class="btn_billeterie" v-bind:href="url_billeterie" depressed large>Billetrie</v-btn>
+        <v-btn class="btn_billeterie" v-bind:href="url_billeterie" depressed large>Acheter votre billet !</v-btn>
       </div>
            </v-col>
             </v-img>
@@ -42,7 +42,7 @@ export default {
       info: null,
       loading: true,
       errored: false,
-      url_billeterie: "https://billetto.fr/e/nation-sounds-festival-2020-billets-395081",
+      url_billeterie: "https://billetto.fr/e/nation-sounds-festival-2020-billets-395081/select",
       img_billeterie: "https://images.pexels.com/photos/96380/pexels-photo-96380.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       titre_billeterie: "Billeterie"   
     }
