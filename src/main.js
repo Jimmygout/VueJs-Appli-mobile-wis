@@ -8,6 +8,7 @@ import VueRecaptcha from 'vue-recaptcha';
 import store from './store'
 import moment from 'moment'
 
+
 Vue.use(VueGoogleMaps, {
     load: {
         key: 'AIzaSyAPi_IbzFZ34FY2XBKw7sOXNqKhMzp8u_o',

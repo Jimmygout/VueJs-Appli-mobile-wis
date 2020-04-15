@@ -1,15 +1,15 @@
 <template>
       <v-row dense>
 
-        <v-col v-for="(item, i) in info" :key="i" cols="12">
+        <v-col v-for="(item, i) in info" :key="i" cols="12" md="6" lg="6" xl="6">
           
           <v-card v-if="i <3" color="rgb(56, 95, 115)" dark>
 
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
-                <v-card-title class="headline" v-text="item.designation"></v-card-title>
+                <v-card-title class="headline" v-text="item.chanteur"></v-card-title>
 
-                <v-card-subtitle v-text="item.chanteur"></v-card-subtitle>
+                <v-card-subtitle v-text="item.designation"></v-card-subtitle>
               </div>
 
               <v-avatar class="ma-0" size="125" tile>
@@ -19,6 +19,7 @@
           </v-card>
         </v-col>
       </v-row>
+      
 </template>
 
 <style lang="scss">

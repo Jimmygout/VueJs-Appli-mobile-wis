@@ -1,18 +1,25 @@
 <template>
-   <v-carousel cycle :continuous="false" :show-arrows="false" hide-delimiter-background delimiter-icon="mdi-minus" height="120" style="padding:0px;">
+   <div>
+        <v-carousel cycle height="120" hide-delimiter-background show-arrows-on-hover > 
 
-    <div v-for="(alert, i) in info" :key="i">
-      <v-carousel-item v-if="alert.publier">
-        <v-sheet color="#1a8b1f" height="100%" tile>
-          <v-row class="fill-height" align="center" justify="center">
-            <div class="display-1"> 
-              {{ alert.titre }} 
+        <v-carousel-item v-for="(alert, i) in info" :key="i">
+          
+          <v-sheet  v-if="alert.publier" color="blue-grey darken-1" height="100%" tile>
+
+            <v-row class="fill-height" align="center" justify="center">
+
+              <div class="display-1">
+                {{ alert.titre }}
               </div>
-          </v-row>
-        </v-sheet>
-      </v-carousel-item>
-      </div>
-    </v-carousel>
+
+            </v-row>
+
+          </v-sheet>
+
+        </v-carousel-item>
+
+      </v-carousel>
+    </div>
 </template>
 
 <script>

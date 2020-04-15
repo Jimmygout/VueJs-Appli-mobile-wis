@@ -182,11 +182,7 @@
     </v-navigation-drawer>
 
 <!-- NAVBAR -->
-    <v-app-bar
-      app
-      color="dark"
-      dark
-    >
+    <v-app-bar app color="blue-grey lighten-5">
       <v-app-bar-nav-icon class="btnNavbar" @click.stop="drawer = !drawer" />
       <v-toolbar-title>Nation Sounds</v-toolbar-title>
     </v-app-bar>
@@ -201,24 +197,14 @@
     </v-content>
 
     <!-- Pied de page -->
-    <v-footer
-      color="indigo"
-      app
+    <v-footer color="indigo"  app
     >
       <span class="white--text">&copy; Nation Sounds 2020</span>
     </v-footer>
   </v-app>
 </template>
-
-<!--
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/test">Test</router-link>
-    </div>
-    -->
-    
-  </div>
+  
+</div>
 </template>
 
 <style lang="scss">
@@ -245,10 +231,10 @@
   }
 }
 #menu {
-  background-color: floralwhite;
+  background-color: snow;
 }
 #content {
-  background-color: cornsilk;
+  background-color: white;
 }
 </style>
 

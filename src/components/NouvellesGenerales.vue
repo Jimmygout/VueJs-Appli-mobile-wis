@@ -3,7 +3,7 @@
         <h1> Les Nouvelles Générales</h1>
     <div v-for="(alert, i) in info" :key="i">
         <v-col cols="12">
-       <v-card v-if="alert.publier" color="#1a8b1f" dark>
+       <v-card v-if="alert.publier" color="blue-grey darken-1" dark>
               <v-card-title class="headline">{{ alert.titre }}</v-card-title>
               <v-card-subtitle>{{ alert.designation }}</v-card-subtitle>
             </v-card>
