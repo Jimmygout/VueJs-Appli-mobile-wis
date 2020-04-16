@@ -23,19 +23,36 @@
           </v-timeline>-->
      
       <v-timeline >
-        <v-timeline-item v-for="n in 3" :key="n">
+        <v-timeline-item v-for="(item, i) in info" :key="i">
 
-          <span slot="opposite">Tus eu perfecto</span>
+          <span slot="opposite">{{ formatDate(item.dateConcert) }}</span>
 
-          <v-card class="elevation-2">
+    <v-card class="mx-auto" width="150px" style="display: table">
 
-            <v-card-title class="headline">Lorem ipsum</v-card-title>
+      <v-img class="white--text align-end" height="200px" width="300px" :src="url_img + item.picture">
+        
+      </v-img>
+  
+      <v-card-title class="headline" v-text="item.chanteur"></v-card-title>
+      <v-card-subtitle v-text="item.designation"></v-card-subtitle>
 
-            <v-card-subtitle>
-              Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
-            </v-card-subtitle>
-
-          </v-card>
+  
+      <v-card-actions>
+        <v-btn
+          color="orange"
+          text
+        >
+          Share
+        </v-btn>
+  
+        <v-btn
+          color="orange"
+          text
+        >
+          Explore
+        </v-btn>
+      </v-card-actions>
+    </v-card>
         </v-timeline-item>
       </v-timeline>
 </template>
@@ -76,7 +93,7 @@ export default {
   // methods area
   formatDate: function(value){
     //return moment(String(value)).lang('fr').format('dddd Do MMMM YYYY [à] hh:mm')
-    return moment(String(value)).lang('fr').format('Do/MM/YY [à] hh:mm')
+    return moment(String(value)).lang('fr').format('ddd Do MMMM YYYY [à] hh:mm')
     // you dont have to use fromNow() it's just an example
 
   }
