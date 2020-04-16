@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an Partenaires page</h1>
+    <h2>Nos partenaires :</h2>
   </div>
 </template>

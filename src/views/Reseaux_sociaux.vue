@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an Reseaux sociaux page</h1>
+    <h2>Suivez nous sur nos Réseaux Sociaux :</h2>
   </div>
 </template>

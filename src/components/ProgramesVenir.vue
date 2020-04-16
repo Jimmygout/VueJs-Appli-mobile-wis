@@ -3,7 +3,7 @@
 
         <v-col v-for="(item, i) in info" :key="i" cols="12" md="6" lg="6" xl="6">
           
-          <v-card v-if="i <3" color="rgb(56, 95, 115)" dark >
+          <v-card v-if="i <3" color="rgb(56, 95, 115)" dark style="display: table" width="100%" >
 
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
