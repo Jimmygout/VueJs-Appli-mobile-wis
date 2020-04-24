@@ -4,7 +4,7 @@
       <v-app id="inspire">
 
         <v-navigation-drawer v-model="drawer" app id="menu">
-          <v-list dense>
+          <v-list dense class="text-left">
             <!-- MENU -->
             <router-link to="/">
               <v-list-item link>
@@ -23,7 +23,7 @@
             <router-link to="/informations">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-information-variant</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -37,7 +37,7 @@
             <router-link to="/programmes">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-music-note-eighth</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -51,7 +51,7 @@
             <a v-bind:href="billeterie_link"> 
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-ticket-confirmation</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -65,11 +65,11 @@
             <router-link to="/informations_pratiques">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-help</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
-                    Informations pratiques et FAQ
+                    FAQ
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -79,7 +79,7 @@
             <router-link to="/carte_interactive">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-map</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -93,7 +93,7 @@
             <router-link to="/photos">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-camera</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -107,25 +107,11 @@
             <router-link to="/reseaux_sociaux">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-account-multiple  </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
-                    Réseaux sociaux   
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </router-link> 
-
-            <!-- Compte  -->
-            <router-link to="/compte">
-              <v-list-item link>
-                <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    Compte   
+                    Communautés   
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -135,7 +121,7 @@
             <router-link to="/partenaires">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-handshake </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -149,11 +135,11 @@
             <router-link to="/about">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon>mdi-information-outline</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
-                    About
+                    A propos
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -163,7 +149,7 @@
             <router-link to="/contact">
               <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>mdi-contact-mail</v-icon>
+                  <v-icon> mdi-account-box </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -181,6 +167,16 @@
         <v-app-bar app color="blue-grey lighten-5">
           <v-app-bar-nav-icon class="btnNavbar" @click.stop="drawer = !drawer" />
           <v-toolbar-title>Nation Sounds</v-toolbar-title>
+          <v-spacer></v-spacer>
+
+          <router-link to="/compte">
+                 <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-icon color="primary" dark v-on="on">mdi-account</v-icon>
+        </template>
+        <span>Compte</span>
+      </v-tooltip>    
+          </router-link>
         </v-app-bar>
 
         <v-content id="content">
@@ -227,6 +223,9 @@
 }
 #content {
   background-color: white;
+}
+a{
+  text-decoration: none;
 }
 </style>
 
