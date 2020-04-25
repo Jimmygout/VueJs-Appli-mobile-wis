@@ -1,6 +1,6 @@
 <template>
   <div class="partenaires">
-
+    <h2 class="titre-h2">Nos partenaires</h2>
     <div v-if="loading" class="load">
       <div class="text-center">
         <v-progress-circular
@@ -25,7 +25,6 @@
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title v-html="partenaire.titre"></v-list-item-title>
-                <v-list-item-subtitle v-html="partenaire.site"></v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
     

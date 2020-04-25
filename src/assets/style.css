@@ -14,3 +14,15 @@
   a{
     text-decoration: none;
   }
+  .titre-h2{
+      margin-top: 15px;
+      margin-bottom: 15px;
+      color: #1976d2;
+  }
+.v-application{
+    font-family: cursive !important;
+}
+
+  .no-padding{
+    padding: 0px !important;
+  }

@@ -166,6 +166,7 @@
         <!-- NAVBAR -->
         <v-app-bar app color="blue-grey lighten-5">
           <v-app-bar-nav-icon class="btnNavbar" @click.stop="drawer = !drawer" />
+          <v-spacer></v-spacer>
           <v-toolbar-title>Nation Sounds</v-toolbar-title>
           <v-spacer></v-spacer>
 
@@ -196,16 +197,7 @@
 </template>
 <style src="./assets/style.css"></style>
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-.no-padding{
-  padding: 0px !important;
-}
+
 #nav {
   padding: 30px;
 
