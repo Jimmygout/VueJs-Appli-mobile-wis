@@ -26,3 +26,23 @@
   .no-padding{
     padding: 0px !important;
   }
+  .mdi-facebook{
+      color: #4267b2 !important;
+      font-size: 50px !important;
+  }
+  .mdi-twitter{
+        color: rgba(29,161,242,1.00) !important;
+      font-size: 50px !important;
+  }
+  .mdi-instagram{
+        color: black !important;
+      font-size: 50px !important;
+  }
+  .mdi-snapchat{
+        color: yellow !important;
+      font-size: 50px !important;
+  }
+  .mdi-web{
+        color: grey !important;
+      font-size: 50px !important;
+  }

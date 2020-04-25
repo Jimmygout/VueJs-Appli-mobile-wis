@@ -43,16 +43,16 @@ export default {
   },
   mounted () {
     this.$axios
-      .get(this.$api+'/partenaires.json')
+      .get(this.$api+'/partenaires?publier=true')
       .then(response => {
         this.info = response.data
       })
       .finally(() => this.loading = false)
   },
   methods: {
-    redirect: function (event) {
-      if (event) {
-        window.open(event , '_blank');
+    redirect: function (url) {
+      if (url) {
+        window.open(url , '_blank');
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="partenaires">
-    <h2 class="titre-h2">Nos partenaires</h2>
+    <h2 class="titre-h2">La communauté</h2>
     <div v-if="loading" class="load">
       <div class="text-center">
         <v-progress-circular
@@ -15,16 +15,16 @@
 
             <v-list-item
               v-else
-              v-for="partenaire in info"
-              v-bind:key = partenaire.id
-              v-on:click="redirect(partenaire.site)"
+              v-for="reseaux in info"
+              v-bind:key = reseaux.id
+              v-on:click="redirect(reseaux.url)"
               ripple
             >
               <v-list-item-avatar style="width: 80px;">
-                <img style="height: auto;" v-bind:src ="img + partenaire.logo">
+                <v-icon> mdi-{{reseaux.type}} </v-icon>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title v-html="partenaire.titre"></v-list-item-title>
+                <v-list-item-title v-html="reseaux.titre"></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
     
@@ -43,7 +43,7 @@ export default {
   },
   mounted () {
     this.$axios
-      .get(this.$api+'/partenaires.json')
+      .get(this.$api+'/reseaux_sociauxes?publier=true')
       .then(response => {
         this.info = response.data
       })
