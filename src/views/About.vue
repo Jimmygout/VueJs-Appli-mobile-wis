@@ -1,9 +1,48 @@
 <template>
   <div class="about">
-    <h2>à Propos du festival</h2>
-    <p>
-      Les 19, 20 et 21 Juin prochains sont officiellement des dates à ne pas manquer. C'est alors qu'aura lieu la toute première édition du plus grand festival Parisien ! 
-Regroupant tous les styles de musique, vous pourrez assister aux prestations des plus gros artistes au monde. Le tout se déroulera au Stade de Fance !
-    </p>
+    <section>
+    <div v-if="loading" class="load">
+      <div class="text-center">
+        <v-progress-circular
+        :size="70"
+        :width="7"
+        color="purple"
+        indeterminate
+      ></v-progress-circular>
+      </div>
+    </div>
+
+    <div
+      v-else
+      v-for="apropos in info"
+      v-bind:key = apropos.id
+    >
+    <h2 class="titre-h2">{{ apropos.titre }}</h2>
+     <p>
+       {{ apropos.designation }}
+     </p>
+      
+    </div>
+
+  </section>
   </div>
 </template>
+
+<script>
+export default {
+   data () {
+    return {
+      info: null,
+      loading: true,
+    }
+  },
+  mounted () {
+    this.$axios
+      .get(this.$api+'/apropos.json')
+      .then(response => {
+        this.info = response.data
+      })
+      .finally(() => this.loading = false)
+  },
+}
+</script>

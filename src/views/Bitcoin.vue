@@ -44,6 +44,7 @@ export default {
       .get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then(response => {
         this.info = response.data.bpi
+        console.log(this.info);
       })
       .finally(() => this.loading = false)
   }

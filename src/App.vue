@@ -194,7 +194,7 @@
     </template>
   </div>
 </template>
-
+<style src="./assets/style.css"></style>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -218,15 +218,7 @@
     }
   }
 }
-#menu {
-  background-color: snow;
-}
-#content {
-  background-color: white;
-}
-a{
-  text-decoration: none;
-}
+
 </style>
 
 <script>

@@ -19,6 +19,7 @@ Vue.use(VueGoogleMaps, {
 Vue.use(VueRecaptcha, moment)
 
 Vue.prototype.$axios = axios
+Vue.prototype.$api = 'http://jimmy-gout.com/api'
 
 Vue.config.productionTip = false
 
