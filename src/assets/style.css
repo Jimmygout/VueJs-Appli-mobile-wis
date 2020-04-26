@@ -46,3 +46,10 @@
         color: grey !important;
       font-size: 50px !important;
   }
+  .v-btn--active--prog{
+    background-color: #6200ea !important;
+    color: white !important;
+  }
+  .v-btn--inact--prog{
+    
+  }

@@ -1,7 +1,8 @@
 <template>
-  <div class="partenaires">
+  <div class="programme">
     <h2 class="titre-h2">Le programme</h2>
 
+ <!--- Menu jour --->
 <v-tabs
       v-model="tab"
       background-color="deep-purple accent-4"
@@ -23,17 +24,9 @@
         <span>Jour 3</span>
       </v-tab>
     </v-tabs>
+ <!--- fin Menu jour --->
 
-    <v-tabs-items v-model="tab">
-      <v-tab-item
-        :value="'tab-3'"
-      >
-        <v-card flat>
-          <v-card-text>{{ text }}</v-card-text>
-        </v-card>
-      </v-tab-item>
-    </v-tabs-items>
-
+ <!--- menu style evenement --->
  <v-row
         align="center"
         justify="center"
@@ -43,16 +36,18 @@
           v-model="toggle_exclusive"
           rounded
         >
-          <v-btn>
-            <span>Par heure</span>
+          <v-btn to="/programmes" class="v-item--active v-btn--active v-btn--active--prog">
+            <span>Concert</span>
           </v-btn>
-          <v-btn>
-            <span>Par lieu</span>
+          <v-btn to="/rencontres">
+            <span>Rencontre</span>
           </v-btn>
         </v-btn-toggle>
       </v-row>
+<!--- fin style evenement --->
 
-    <div v-if="loading" class="load">
+<!--- chargement page --->
+    <div v-if="loading1 && loading2 && loading3 " class="load">
       <div class="text-center">
         <v-progress-circular
         :size="70"
@@ -62,54 +57,249 @@
       ></v-progress-circular>
       </div>
     </div>
+<!--- fin chargement page --->
 
-            <v-list-item
-              v-else
-              v-for="partenaire in info"
-              v-bind:key = partenaire.id
-              v-on:click="redirect(partenaire.url)"
-              ripple
-            >
-              <v-list-item-avatar style="width: 80px;">
-                <v-icon> mdi-{{partenaire.type}} </v-icon>
-                <!--<img style="height: auto;" v-bind:src ="img + partenaire.logo">-->
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-title v-html="partenaire.titre"></v-list-item-title>
+<!----- tableau ---->
+    <v-tabs-items v-model="tab">
+      <!--- Jour 1 ---->
+      <v-tab-item
+        :value="'tab-1'"
+      >
+        <v-list two-line>
+      <v-list-item-group
+        v-model="selected"
+        multiple
+        active-class="pink--text"
+      >
+        <template v-for="(item, index) in jour1">
+          <v-list-item :key="item.id" class="no-padding">
+            <template v-slot:default="{ active, toggle }">
+       
+       <v-col cols="4" sm="4" class="no-padding">
+   
+<v-img :src="img + item.chanteur.image" aspect-ratio="1.1"></v-img>
+      </v-col>
+      <v-col cols="6" sm="6">
+        <v-list-item-content>
+       <v-list-item-title  class="text-left font-weight-black" v-text="item.chanteur.nom"></v-list-item-title>
+                <v-list-item-subtitle class=" text-left">{{ formatDate(item.dateDebut) }}-{{ formatDate(item.dateFin) }}</v-list-item-subtitle>
+                <v-list-item-subtitle class="text-left" v-text="item.scene.lieu"></v-list-item-subtitle>
               </v-list-item-content>
-            </v-list-item>
+      </v-col>
+              
+
+              <v-list-item-action>
+                
+                <v-icon
+                  v-if="!active"
+                  color="grey lighten-1"
+                >
+                  star_border
+                </v-icon>
+
+                <v-icon
+                  v-else
+                  color="yellow"
+                >
+                  star
+                </v-icon>
+              </v-list-item-action>
+            </template>
+          </v-list-item>
+
+          <v-divider
+            v-if="index + 1 < jour1.length"
+            :key="index"
+          ></v-divider>
+        </template>
+      </v-list-item-group>
+    </v-list>
+
+
+      </v-tab-item>
+      <!-- fin jour 1 -->
+      <!-- jour 2 -->
+
+      <v-tab-item
+        :value="'tab-2'"
+      >
+        <v-list two-line>
+      <v-list-item-group
+        v-model="selected"
+        multiple
+        active-class="pink--text"
+      >
+        <template v-for="(item, index) in jour2">
+          <v-list-item :key="item.id" class="no-padding">
+            <template v-slot:default="{ active, toggle }">
+       
+       <v-col cols="4" sm="4" class="no-padding">
+   
+<v-img :src="img + item.chanteur.image" aspect-ratio="1.1"></v-img>
+      </v-col>
+      <v-col cols="6" sm="6">
+        <v-list-item-content>
+       <v-list-item-title  class="text-left font-weight-black" v-text="item.chanteur.nom"></v-list-item-title>
+                <v-list-item-subtitle class=" text-left">{{ formatDate(item.dateDebut) }}-{{ formatDate(item.dateFin) }}</v-list-item-subtitle>
+                <v-list-item-subtitle class="text-left" v-text="item.scene.lieu"></v-list-item-subtitle>
+              </v-list-item-content>
+      </v-col>
+              
+
+              <v-list-item-action>
+                
+                <v-icon
+                  v-if="!active"
+                  color="grey lighten-1"
+                >
+                  star_border
+                </v-icon>
+
+                <v-icon
+                  v-else
+                  color="yellow"
+                >
+                  star
+                </v-icon>
+              </v-list-item-action>
+            </template>
+          </v-list-item>
+
+          <v-divider
+            v-if="index + 1 < jour2.length"
+            :key="index"
+          ></v-divider>
+        </template>
+      </v-list-item-group>
+    </v-list>
+
+
+      </v-tab-item>
+<!-- fin jour 2 -->
+<!-- jour 3 -->
+<v-tab-item
+        :value="'tab-3'"
+      >
+        <v-list two-line>
+      <v-list-item-group
+        v-model="selected"
+        multiple
+        active-class="pink--text"
+      >
+        <template v-for="(item, index) in jour3">
+          <v-list-item :key="item.id" class="no-padding">
+            <template v-slot:default="{ active, toggle }">
+       
+       <v-col cols="4" sm="4" class="no-padding">
+   
+<v-img :src="img + item.chanteur.image" aspect-ratio="1.1"></v-img>
+      </v-col>
+      <v-col cols="6" sm="6">
+        <v-list-item-content>
+       <v-list-item-title  class="text-left font-weight-black" v-text="item.chanteur.nom"></v-list-item-title>
+                <v-list-item-subtitle class=" text-left">{{ formatDate(item.dateDebut) }}-{{ formatDate(item.dateFin) }}</v-list-item-subtitle>
+                <v-list-item-subtitle class="text-left" v-text="item.scene.lieu"></v-list-item-subtitle>
+              </v-list-item-content>
+      </v-col>
+              
+
+              <v-list-item-action>
+                
+                <v-icon
+                  v-if="!active"
+                  color="grey lighten-1"
+                >
+                  star_border
+                </v-icon>
+
+                <v-icon
+                  v-else
+                  color="yellow"
+                >
+                  star
+                </v-icon>
+              </v-list-item-action>
+            </template>
+          </v-list-item>
+
+          <v-divider
+            v-if="index + 1 < jour3.length"
+            :key="index"
+          ></v-divider>
+        </template>
+      </v-list-item-group>
+    </v-list>
+
+
+      </v-tab-item>
+      <!-- fin jour 3 -->
+    </v-tabs-items>
+
     
     </div>
 
 </template>
 
 <script>
+import moment from 'moment'
 export default {
    data () {
     return {
-      info: null,
-      loading: true,
-      img: 'http://jimmy-gout.com/uploads/images/partenaire/',
-       tab: null,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      jour1: null,
+      jour2: null,
+      jour3: null,
+      loading1: true,
+      loading2: true,
+      loading3: true,
+      toggle_exclusive: undefined,
+      selected: [2],
+      img: 'http://jimmy-gout.com/uploads/images/chanteur_images/',
+      tab: null,
     }
   },
   mounted () {
+    // jour 1
     this.$axios
-      .get(this.$api+'/reseaux_sociauxes?publier=true')
+      .get(this.$api+'/concerts?dateDebut[before]=2020-07-02&dateDebut[after]=2020-07-01')
       .then(response => {
-        this.info = response.data
+        this.jour1 = response.data
       })
-      .finally(() => this.loading = false)
+      .finally(() => this.loading1 = false)
+// jour 2
+    this.$axios
+      .get(this.$api+'/concerts?dateDebut[before]=2020-07-03&dateDebut[after]=2020-07-02')
+      .then(response => {
+        this.jour2 = response.data
+      })
+      .finally(() => this.loading2 = false)
+// jour 3
+      this.$axios
+      .get(this.$api+'/concerts?dateDebut[before]=2020-07-04&dateDebut[after]=2020-07-03')
+      .then(response => {
+        this.jour3 = response.data
+      })
+      .finally(() => this.loading3 = false)
+
   },
   methods: {
     redirect: function (event) {
       if (event) {
         window.open(event , '_blank');
       }
-    }
+    },
+    formatDate: function(value){
+    //return moment(String(value)).lang('fr').format('dddd Do MMMM YYYY [à] hh:mm')
+    return moment(String(value)).format('HH[h]mm')
+    // you dont have to use fromNow() it's just an example
+  }
   }
 }
 
 
 </script>
+
+<style>
+.v-tabs-bar{
+  height: 48px !important;
+}
+</style>

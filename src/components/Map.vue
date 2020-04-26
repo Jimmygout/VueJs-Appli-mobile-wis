@@ -11,7 +11,7 @@
       <v-switch v-model="toilettes" class="mx-4" label="Toilettes"></v-switch>
     </v-radio-group>
 
-   <GmapMap :center="{lat:48.8411233,lng:2.4552507}" :zoom="12" map-type-id="terrain" style="width: 100%; height: 550px">
+   <GmapMap :center="{lat:48.8411233,lng:2.4552507}" :zoom="14" map-type-id="terrain" style="width: 100%; height: 550px">
 
   <gmap-marker :position="{lat:48.8411233,lng:2.4552507}">
       </gmap-marker>
