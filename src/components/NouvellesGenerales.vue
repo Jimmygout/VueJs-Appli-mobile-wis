@@ -3,9 +3,17 @@
         <h1> Les Nouvelles Générales</h1>
     <div v-for="(alert, i) in info" :key="i">
         <v-col cols="12">
-       <v-card v-if="alert.publier" color="blue-grey darken-1" dark width="100%" style="display: table" align="center">
-              <v-card-title class="headline" >{{ alert.titre }}</v-card-title>
+       <v-card v-if="alert.publier" color="blue-grey darken-1" dark width="100%" style="display: contents" align="center">
+          <v-img
+              :src="img + alert.image"
+              class="white--text align-center"
+              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+              height="200px"
+            >
+            <v-card-title class="headline d-block" >{{ alert.titre }}</v-card-title>
               <v-card-subtitle>{{ alert.designation }}</v-card-subtitle>
+            </v-img>
+              
             </v-card>
             </v-col>   
       </div>
@@ -22,17 +30,13 @@ export default {
     return {
       info: null,
       loading: true,
-      errored: false
-    }
-  },
-  filters: {
-    currencydecimal (value) {
-      return value.toFixed(2)
+      errored: false,
+      img: 'http://jimmy-gout.com/uploads/images/information_generale/',
     }
   },
   mounted () {
     this.$axios
-      .get(this.localSf+'/api/actualites.json')
+      .get(this.$api+'/information_generales?publier=true')
       .then(response => {
         this.info = response.data
       })

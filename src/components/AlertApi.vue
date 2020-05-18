@@ -1,11 +1,12 @@
 <template>
-    <div>
+    <div v-if="alerts">
         <h1> Les Nouvelles Importantes</h1>
-    <div v-for="(alert, i) in info" :key="i">
+    <div v-for="(alert, i) in alerts" :key="i">
         <v-col cols="12">
-       <v-card v-if="alert.publier" color="deep-orange darken-2" style="display: table" width="100%" dark>
-              <v-card-title class="headline">{{ alert.titre }}</v-card-title>
-              <v-card-subtitle>{{ alert.designation }}</v-card-subtitle>
+       <v-card color="blue-grey darken-1" dark width="100%" style="display: table" align="center">
+
+            <v-card-title class="headline d-block" >{{ alert.titre }}</v-card-title>
+              <v-card-subtitle>{{ alert.designation }}</v-card-subtitle> 
             </v-card>
             </v-col>   
       </div>
@@ -15,26 +16,18 @@
 <script>
 export default {
   name: 'AlertApi',
-  props:{
-    localSf:String
-  },
     data () {
     return {
-      info: null,
+      alerts: null,
       loading: true,
       errored: false
     }
   },
-  filters: {
-    currencydecimal (value) {
-      return value.toFixed(2)
-    }
-  },
   mounted () {
     this.$axios
-      .get(this.localSf+'/api/actualites.json')
+      .get(this.$api+'/information_urgentes?Publier=true')
       .then(response => {
-        this.info = response.data
+        this.alerts = response.data
       })
       .finally(() => this.loading = false)
   }

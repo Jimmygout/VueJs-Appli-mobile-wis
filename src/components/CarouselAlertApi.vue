@@ -1,15 +1,16 @@
 <template>
-       <div>
-        <v-carousel cycle height="150"  hide-delimiter-background show-arrows-on-hover > 
+       <div v-if="info">
+      <h1> Nouvelles importantes </h1>
+        <v-carousel  cycle height="150"  hide-delimiter-background show-arrows-on-hover > 
 
-        <v-carousel-item v-for="(alert, i) in info" :key="i">
+        <v-carousel-item v-for="(urgent, i) in info" :key="i">
           
-          <v-sheet  v-if="alert.publier" color="deep-orange darken-2" height="100%" tile>
+          <v-sheet color="deep-orange darken-2" height="100%" tile>
 
             <v-row class="fill-height" align="center" justify="center">
 
               <div class="display-2">
-                {{ alert.titre }}
+                {{ urgent.titre }}
               </div>
 
             </v-row>
@@ -35,15 +36,10 @@ export default {
       errored: false
     }
   },
-  filters: {
-    currencydecimal (value) {
-      return value.toFixed(2)
-    }
-  },
   mounted () {
     
     this.$axios
-      .get(this.localSf+'/api/actualites.json')
+      .get(this.$api+'/information_urgentes?Publier=true')
       .then(response => {
         this.info = response.data
       })

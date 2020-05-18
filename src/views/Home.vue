@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <br>
-    <h1> Nouvelles importantes </h1>
     <CarouselAlertApi :localSf="localSf"/> <br>
     <h1> Concert à venir </h1>
     <ProgramesVenir :localSf="localSf"/> 
