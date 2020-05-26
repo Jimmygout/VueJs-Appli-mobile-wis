@@ -13,15 +13,18 @@
       <v-tabs-slider></v-tabs-slider>
 
       <v-tab href="#tab-1">
-        <span>Jour 1</span>
+        <span>MAR</span>
+        <span>21 Juil</span>
       </v-tab>
 
       <v-tab href="#tab-2">
-        <span>Jour 2</span>
+        <span>MER</span>
+        <span>22 Juil</span>
       </v-tab>
 
       <v-tab href="#tab-3">
-        <span>Jour 3</span>
+        <span>JEU</span>
+        <span>23 Juil</span>
       </v-tab>
     </v-tabs>
  <!--- fin Menu jour --->
@@ -79,31 +82,13 @@
    
 <v-img :src="img + item.chanteur.image" aspect-ratio="1.1"></v-img>
       </v-col>
-      <v-col cols="6" sm="6">
+      <v-col cols="8" sm="8">
         <v-list-item-content>
        <v-list-item-title  class="text-left font-weight-black" v-text="item.chanteur.nom"></v-list-item-title>
                 <v-list-item-subtitle class=" text-left">{{ formatDate(item.dateDebut) }}-{{ formatDate(item.dateFin) }}</v-list-item-subtitle>
                 <v-list-item-subtitle class="text-left" v-text="item.scene.lieu"></v-list-item-subtitle>
               </v-list-item-content>
       </v-col>
-              
-
-              <v-list-item-action>
-                
-                <v-icon
-                  v-if="!active"
-                  color="grey lighten-1"
-                >
-                  star_border
-                </v-icon>
-
-                <v-icon
-                  v-else
-                  color="yellow"
-                >
-                  star
-                </v-icon>
-              </v-list-item-action>
             </template>
           </v-list-item>
 
@@ -137,31 +122,13 @@
    
 <v-img :src="img + item.chanteur.image" aspect-ratio="1.1"></v-img>
       </v-col>
-      <v-col cols="6" sm="6">
+      <v-col cols="8" sm="8">
         <v-list-item-content>
        <v-list-item-title  class="text-left font-weight-black" v-text="item.chanteur.nom"></v-list-item-title>
                 <v-list-item-subtitle class=" text-left">{{ formatDate(item.dateDebut) }}-{{ formatDate(item.dateFin) }}</v-list-item-subtitle>
                 <v-list-item-subtitle class="text-left" v-text="item.scene.lieu"></v-list-item-subtitle>
               </v-list-item-content>
       </v-col>
-              
-
-              <v-list-item-action>
-                
-                <v-icon
-                  v-if="!active"
-                  color="grey lighten-1"
-                >
-                  star_border
-                </v-icon>
-
-                <v-icon
-                  v-else
-                  color="yellow"
-                >
-                  star
-                </v-icon>
-              </v-list-item-action>
             </template>
           </v-list-item>
 
@@ -194,31 +161,13 @@
    
 <v-img :src="img + item.chanteur.image" aspect-ratio="1.1"></v-img>
       </v-col>
-      <v-col cols="6" sm="6">
+      <v-col cols="8" sm="8">
         <v-list-item-content>
        <v-list-item-title  class="text-left font-weight-black" v-text="item.chanteur.nom"></v-list-item-title>
                 <v-list-item-subtitle class=" text-left">{{ formatDate(item.dateDebut) }}-{{ formatDate(item.dateFin) }}</v-list-item-subtitle>
                 <v-list-item-subtitle class="text-left" v-text="item.scene.lieu"></v-list-item-subtitle>
               </v-list-item-content>
       </v-col>
-              
-
-              <v-list-item-action>
-                
-                <v-icon
-                  v-if="!active"
-                  color="grey lighten-1"
-                >
-                  star_border
-                </v-icon>
-
-                <v-icon
-                  v-else
-                  color="yellow"
-                >
-                  star
-                </v-icon>
-              </v-list-item-action>
             </template>
           </v-list-item>
 
@@ -260,21 +209,21 @@ export default {
   mounted () {
     // jour 1
     this.$axios
-      .get(this.$api+'/concerts?dateDebut[before]=2020-07-02&dateDebut[after]=2020-07-01')
+      .get(this.$api+'/concerts?dateDebut[before]=2020-07-22&dateDebut[after]=2020-07-21')
       .then(response => {
         this.jour1 = response.data
       })
       .finally(() => this.loading1 = false)
 // jour 2
     this.$axios
-      .get(this.$api+'/concerts?dateDebut[before]=2020-07-03&dateDebut[after]=2020-07-02')
+      .get(this.$api+'/concerts?dateDebut[before]=2020-07-23&dateDebut[after]=2020-07-22')
       .then(response => {
         this.jour2 = response.data
       })
       .finally(() => this.loading2 = false)
 // jour 3
       this.$axios
-      .get(this.$api+'/concerts?dateDebut[before]=2020-07-04&dateDebut[after]=2020-07-03')
+      .get(this.$api+'/concerts?dateDebut[before]=2020-07-24&dateDebut[after]=2020-07-23')
       .then(response => {
         this.jour3 = response.data
       })
@@ -300,6 +249,6 @@ export default {
 
 <style>
 .v-tabs-bar{
-  height: 48px !important;
+  height: 58px !important;
 }
 </style>
