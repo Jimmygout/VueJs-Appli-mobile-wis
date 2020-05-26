@@ -14,8 +14,7 @@ export default {
   },
   data: function() {
     return {
-      localSf:"http://localhost:8000",
-      localVue:"http://localhost:8001"
+      localSf:"http://jimmy-gout.com"
     };
   }
 }

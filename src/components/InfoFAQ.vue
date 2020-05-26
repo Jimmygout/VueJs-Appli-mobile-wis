@@ -1,79 +1,134 @@
 <template>
-    <div>
-        <h2> Informations pratiques et FAQ</h2>
-        <br>
-        <v-card>
-      <v-tabs v-model="tab" background-color="primary" dark>
-        <v-tab v-for="item in faq" :key="item.tab" >
-          {{ item.tab }}
-        </v-tab>
-      </v-tabs>
-  
-      <v-tabs-items v-model="tab">
-        <v-tab-item v-for="item in faq" :key="item.tab">
-          <v-card flat>
-            <v-card-text>{{ item.content }}</v-card-text>
-          </v-card>
-        </v-tab-item>
-      </v-tabs-items>
-    </v-card>
-    <br>
-    <v-expansion-panels focusable>
-      <v-expansion-panel v-for="(item,i) in 5" :key="i">
-        <v-expansion-panel-header>Item</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
-      </div>
-    
+  <div>
+    <h2>Informations pratiques et FAQ</h2>
+    <br />
+
+    <v-tabs v-model="tab" background-color="primary" dark show-arrows>
+      <v-tab v-for="item in themes" :key="item.id" :href="'#tab-'+item.id">
+        {{ item.theme }}
+      </v-tab>
+    </v-tabs>
+
+    <v-tabs-items v-model="tab">
+
+      <v-tab-item :value="'tab-1'">
+        <v-expansion-panels focusable>
+          <v-expansion-panel v-for="item in application" :key="item.id">
+            <v-expansion-panel-header>
+              {{ item.question }}
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              {{ item.reponse }}
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-tab-item>
+
+       <v-tab-item :value="'tab-2'">
+        <v-expansion-panels focusable>
+          <v-expansion-panel v-for="item in carte" :key="item.id">
+            <v-expansion-panel-header>
+              {{ item.question }}
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              {{ item.reponse }}
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-tab-item>
+
+       <v-tab-item :value="'tab-3'">
+        <v-expansion-panels focusable>
+          <v-expansion-panel v-for="item in concert" :key="item.id">
+            <v-expansion-panel-header>
+              {{ item.question }}
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              {{ item.reponse }}
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-tab-item>
+
+       <v-tab-item :value="'tab-4'">
+        <v-expansion-panels focusable>
+          <v-expansion-panel v-for="item in evenement" :key="item.id">
+            <v-expansion-panel-header>
+              {{ item.question }}
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              {{ item.reponse }}
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-tab-item>
+
+    </v-tabs-items>
+
+    <br />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'InfoFAQ',
-  props:{
-    localSf:String
+  name: "InfoFAQ",
+  props: {
+    localSf: String,
   },
-    data () {
+  data() {
     return {
-      info: null,
+      evenement: null,
+      application: null,
+      concert: null,
+      carte: null,
       loading: true,
       errored: false,
       tab: null,
-      /*faq: [
-      { titre: 'Question 1', question: 'Question 1', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="evenement" },
-      { titre: 'Question 2', question: 'Question 2', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="evenement" },
-      { titre: 'Question 3', question: 'Question 3', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="evenement" },
-      { titre: 'Question 4', question: 'Question 4', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="concert" },
-      { titre: 'Question 5', question: 'Question 5', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="concert" },
-      { titre: 'Question 6', question: 'Question 6', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="carte" },
-      { titre: 'Question 7', question: 'Question 7', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="carte" },
-      { titre: 'Question 8', question: 'Question 8', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="application" },
-      { titre: 'Question 9', question: 'Question 9', response: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",theme="application" }
-      ]*/
-      faq: [
-        { tab: 'Evenement', content: 'Tab 1 Content' },
-        { tab: 'Concert', content: 'Tab 2 Content' },
-        { tab: 'Application', content: 'Tab 3 Content' },
-        { tab: 'Carte', content: 'Tab 4 Content' },
+      themes: [
+        { id: 1, theme: "application" },
+        { id: 2, theme: "carte" },
+        { id: 3, theme: "concert" },
+        { id: 4, theme: "evenement" },
       ],
-    }
+    };
   },
   filters: {
-    currencydecimal (value) {
-      return value.toFixed(2)
-    }
+    currencydecimal(value) {
+      return value.toFixed(2);
+    },
   },
-  mounted () {
+  mounted() {
+    // theme evenement
     this.$axios
-      .get(this.localSf+'/api/actualites.json')
-      .then(response => {
-        this.info = response.data
+      .get(this.localSf + "/api/faqs?theme=evenement&publier=true")
+      .then((response) => {
+        this.evenement = response.data;
       })
-      .finally(() => this.loading = false)
-  }
+      .finally(() => (this.loading = false));
+
+    // theme application
+    this.$axios
+      .get(this.localSf + "/api/faqs?theme=application&publier=true")
+      .then((response) => {
+        this.application = response.data;
+      })
+      .finally(() => (this.loading = false));
+
+    // theme carte
+    this.$axios
+      .get(this.localSf + "/api/faqs?theme=carte&publier=true")
+      .then((response) => {
+        this.carte = response.data;
+      })
+      .finally(() => (this.loading = false));
+
+    // theme concert
+    this.$axios
+      .get(this.localSf + "/api/faqs?theme=concert&publier=true")
+      .then((response) => {
+        this.concert = response.data;
+      })
+      .finally(() => (this.loading = false));
+  },
 };
 </script>
